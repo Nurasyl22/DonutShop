@@ -1,0 +1,15 @@
+name: DonutShop
+main: de.donutshop.DonutShop
+version: 1.0
+api-version: 1.21
+softdepend: [Vault, EssentialsX]
+
+commands:
+  shop:
+    description: Opens the Donut Shop GUI
+    usage: /shop [reload]
+    permission: donutshop.use
+  adminshop:
+    description: Manage shop items
+    usage: /adminshop
+    permission: donutshop.admin
