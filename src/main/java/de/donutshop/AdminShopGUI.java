@@ -37,7 +37,7 @@ public class AdminShopGUI implements Listener {
     }
 
     public void openSelector(Player player) {
-        Inventory inv = Bukkit.createInventory(null, 27, "§cAdmin: Select Category");
+        Inventory inv = Bukkit.createInventory(null, 27, "§cӘкімші: Категорияны таңдаңыз");
         ConfigurationSection categories = plugin.getConfig().getConfigurationSection("main-menu.items");
 
         if (categories != null) {
@@ -64,7 +64,7 @@ public class AdminShopGUI implements Listener {
     }
 
     public void openEditor(Player player, String category) {
-        String title = "§cEdit: " + category;
+        String title = "§cТүзету: " + category;
         Inventory inv = Bukkit.createInventory(null, 27, title);
 
         ConfigurationSection items = plugin.getConfig().getConfigurationSection("categories." + category + ".items");
@@ -80,7 +80,7 @@ public class AdminShopGUI implements Listener {
                         ItemMeta meta = item.getItemMeta();
                         if (meta != null) {
                             meta.setDisplayName("§e" + matName);
-                            meta.setLore(java.util.List.of("§7Price: §a$" + price, "§cRight-click to remove"));
+                            meta.setLore(java.util.List.of("§7Бағасы: §a$" + price, "§cАлып тастау үшін оң жақ батырманы басыңыз"));
                             item.setItemMeta(meta);
                         }
                         inv.setItem(slot, item);
@@ -100,7 +100,7 @@ public class AdminShopGUI implements Listener {
         Player player = (Player) event.getWhoClicked();
         String title = event.getView().getTitle();
 
-        if (title.equals("§cAdmin: Select Category")) {
+        if (title.equals("§cӘкімші: Категорияны таңдаңыз")) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null) return;
 
@@ -112,7 +112,7 @@ public class AdminShopGUI implements Listener {
             return;
         }
 
-        if (editingCategory.containsKey(player.getUniqueId()) && title.startsWith("§cEdit: ")) {
+        if (editingCategory.containsKey(player.getUniqueId()) && title.startsWith("§cТүзету: ")) {
             String category = editingCategory.get(player.getUniqueId());
 
             if (event.getClickedInventory() == event.getView().getTopInventory()) {
@@ -121,7 +121,7 @@ public class AdminShopGUI implements Listener {
                     int slot = event.getSlot();
                     plugin.getConfig().set("categories." + category + ".items." + slot, null);
                     plugin.saveConfig();
-                    player.sendMessage("§cItem removed!");
+                    player.sendMessage("§cЗат алынып тасталды!");
                     openEditor(player, category);
                 }
             }
@@ -132,7 +132,7 @@ public class AdminShopGUI implements Listener {
                     player.closeInventory();
 
                     pendingItems.put(player.getUniqueId(), new PendingItem(category, clicked));
-                    player.sendMessage("§aEnter the price for this item in chat:");
+                    player.sendMessage("§aБұл заттың бағасын чатқа енгізіңіз:");
                 }
             }
         }
@@ -148,12 +148,12 @@ public class AdminShopGUI implements Listener {
             try {
                 double price = Double.parseDouble(event.getMessage());
                 addItemToConfig(pending.category, pending.item, price);
-                player.sendMessage("§aItem added successfully!");
+                player.sendMessage("§aЗат сәтті қосылды!");
 
                 Bukkit.getScheduler().runTask(plugin, () -> openEditor(player, pending.category));
 
             } catch (NumberFormatException e) {
-                player.sendMessage("§cInvalid number! Item addition cancelled.");
+                player.sendMessage("§cЖарамсыз сан! Зат қосу тоқтатылды.");
             }
         }
     }
