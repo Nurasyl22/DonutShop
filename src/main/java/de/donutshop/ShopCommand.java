@@ -17,22 +17,22 @@ public class ShopCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.isOp()) {
-                sender.sendMessage("§cYou don't have permission to use this command!");
+                sender.sendMessage("§cСізде бұл команданы қолдануға рұқсат жоқ!");
                 return true;
             }
             plugin.reloadConfig();
-            sender.sendMessage("§aConfiguration reloaded!");
+            sender.sendMessage("§aКонфигурация қайта жүктелді!");
             return true;
         }
 
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§cOnly players can use this command!");
+            sender.sendMessage("§cБұл команданы тек ойыншылар ғана қолдана алады!");
             return true;
         }
 
         Player player = (Player) sender;
         if (!player.hasPermission("donutshop.use")) {
-            player.sendMessage("§cYou don't have permission to use this command!");
+            player.sendMessage("§cСізде бұл команданы қолдануға рұқсат жоқ!");
             return true;
         }
 
