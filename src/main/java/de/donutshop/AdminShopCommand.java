@@ -16,13 +16,13 @@ public class AdminShopCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§cOnly players can use this command!");
+            sender.sendMessage("§cБұл команданы тек ойыншылар ғана қолдана алады!");
             return true;
         }
 
         Player player = (Player) sender;
         if (!player.isOp()) {
-            player.sendMessage("§cYou don't have permission to use this command!");
+            player.sendMessage("§cСізде бұл команданы қолдануға рұқсат жоқ!");
             return true;
         }
 
