@@ -11,7 +11,7 @@ public class DonutShop extends JavaPlugin {
     @Override
     public void onEnable() {
         if (!setupEconomy()) {
-            getLogger().severe("Vault not found or economy provider not available! Disabling plugin.");
+            getLogger().severe("Vault табылмады немесе экономика провайдері қолжетімсіз! Плагин өшірілуде.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -21,12 +21,12 @@ public class DonutShop extends JavaPlugin {
         getCommand("adminshop").setExecutor(new AdminShopCommand(this));
         getServer().getPluginManager().registerEvents(new ShopGUI(), this);
         getServer().getPluginManager().registerEvents(new AdminShopGUI(this), this);
-        getLogger().info("DonutShop has been enabled!");
+        getLogger().info("DonutShop іске қосылды!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("DonutShop has been disabled!");
+        getLogger().info("DonutShop өшірілді!");
     }
 
     private boolean setupEconomy() {
