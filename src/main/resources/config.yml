@@ -1,199 +1,199 @@
-# DonutShop Configuration
+# DonutShop Конфигурациясы
 
-# Main Menu Settings
+# Негізгі мәзір баптаулары
 main-menu:
-  title: 'Shop'
+  title: 'Дүкен'
   size: 27
   items:
     '11':
       material: END_STONE
       name: 'End'
-      lore: 'Click to view End Shop'
+      lore: 'End дүкенін көру үшін басыңыз'
       category: end
     '12':
       material: NETHERRACK
       name: 'Nether'
-      lore: 'Click to view Nether Shop'
+      lore: 'Nether дүкенін көру үшін басыңыз'
       category: nether
     '13':
       material: TOTEM_OF_UNDYING
-      name: 'Gear'
-      lore: 'Click to view Gear Shop'
+      name: 'Сауыт-сайман'
+      lore: 'Сауыт-сайман дүкенін көру үшін басыңыз'
       category: gear
     '14':
       material: COOKED_BEEF
-      name: 'Food'
-      lore: 'Click to view Food Shop'
+      name: 'Тамақ'
+      lore: 'Тамақ дүкенін көру үшін басыңыз'
       category: food
     '15':
       material: SPAWNER
-      name: 'Spawner'
-      lore: 'Click to view Spawner Shop'
+      name: 'Спаунер'
+      lore: 'Спаунер дүкенін көру үшін басыңыз'
       category: spawner
 
-# Category Shops
+# Категория дүкендері
 categories:
   end:
-    title: 'End Shop'
+    title: 'End Дүкені'
     size: 27
     items:
       '9':
         material: ENDER_CHEST
-        name: 'Ender Chest'
+        name: 'Ender Сандық'
         price: 2500.0
       '10':
         material: ENDER_PEARL
-        name: 'Ender Pearl'
+        name: 'Ender Інжу'
         price: 75.0
       '11':
         material: END_STONE
-        name: 'End Stone'
+        name: 'End Тасы'
         price: 8.0
       '12':
         material: DRAGON_BREATH
-        name: 'Dragon´s Breath'
+        name: 'Айдаһар Тынысы'
         price: 1000.0
       '13':
         material: END_ROD
-        name: 'End Rod'
+        name: 'End Таяқшасы'
         price: 100.0
       '14':
         material: CHORUS_FRUIT
-        name: 'Chrous Fruit'
+        name: 'Хорус Жемісі'
         price: 108.0
       '15':
         material: POPPED_CHORUS_FRUIT
-        name: 'Poppeed Chorus Fruit'
+        name: 'Жарылған Хорус Жемісі'
         price: 24.0
       '16':
         material: SHULKER_SHELL
-        name: 'Shulker Shell'
+        name: 'Шалкер Қабыршағы'
         price: 350.0
       '17':
         material: SHULKER_BOX
-        name: 'Shulker Box'
+        name: 'Шалкер Жәшігі'
         price: 800.0
   nether:
-    title: 'Nether Shop'
+    title: 'Nether Дүкені'
     size: 27
     items:
       '9':
         material: BLAZE_ROD
-        name: 'Blaze Rod'
+        name: 'Жалын Таяқшасы'
         price: 150.0
       '10':
         material: NETHER_WART
-        name: 'Nether Wart'
+        name: 'Nether Жиде'
         price: 96.0
       '11':
         material: GLOWSTONE_DUST
-        name: 'Glowstone Dust'
+        name: 'Жарқыраған Тас Ұнтағы'
         price: 15.0
       '12':
         material: MAGMA_CREAM
-        name: 'Magma Cream'
+        name: 'Магма Кремі'
         price: 96.0
       '13':
         material: GHAST_TEAR
-        name: 'Ghast Tear'
+        name: 'Гаст Көз Жасы'
         price: 350.0
       '14':
         material: QUARTZ
-        name: 'Quartz'
+        name: 'Кварц'
         price: 30.0
       '15':
         material: SOUL_SAND
-        name: 'Soul Sand'
+        name: 'Жан Құмы'
         price: 50.0
       '16':
         material: MAGMA_BLOCK
-        name: 'Magma Block'
+        name: 'Магма Блогы'
         price: 35.0
       '17':
         material: CRYING_OBSIDIAN
-        name: 'Crying Obsidian'
+        name: 'Жылаған Обсидиан'
         price: 150.0
   gear:
-    title: 'Gear Shop'
+    title: 'Сауыт-сайман Дүкені'
     size: 27
     items:
       '9':
         material: OBSIDIAN
-        name: 'Obsidian'
+        name: 'Обсидиан'
         price: 100.0
       '10':
         material: END_CRYSTAL
-        name: 'End Crystl'
+        name: 'End Кристалы'
         price: 350.0
       '11':
         material: RESPAWN_ANCHOR
-        name: 'Respawn Anchor'
+        name: 'Қайта Тірілу Зәкірі'
         price: 1000.0
       '12':
         material: GLOWSTONE
-        name: 'Glowstone'
+        name: 'Жарқыраған Тас'
         price: 100.0
       '13':
         material: TOTEM_OF_UNDYING
-        name: 'Totem of Undying'
+        name: 'Өлместік Тотемі'
         price: 1500.0
       '14':
         material: ENDER_PEARL
-        name: 'Ender Pearl'
+        name: 'Ender Інжу'
         price: 75.0
       '15':
         material: GOLDEN_APPLE
-        name: 'Golden Apple'
+        name: 'Алтын Алма'
         price: 250.0
       '16':
         material: EXPERIENCE_BOTTLE
-        name: 'Experience Bottle'
+        name: 'Тәжірибе Бөтелкесі'
         price: 100.0
       '17':
         material: TIPPED_ARROW
-        name: 'Tipped Arrow'
+        name: 'Улы Жебе'
         price: 500.0
   food:
-    title: 'Food Shop'
+    title: 'Тамақ Дүкені'
     size: 27
     items:
       '9':
         material: POTATO
-        name: 'Potato'
+        name: 'Картоп'
         price: 96.0
       '10':
         material: SWEET_BERRIES
-        name: 'Sweet Berries'
+        name: 'Тәтті Жидектер'
         price: 50.0
       '11':
         material: MELON_SLICE
-        name: 'Melon Slice'
+        name: 'Қарбыз Тілімі'
         price: 36.0
       '12':
         material: CARROT
-        name: 'Carrot'
+        name: 'Сәбіз'
         price: 96.0
       '13':
         material: APPLE
-        name: 'Apple'
+        name: 'Алма'
         price: 25.0
       '14':
         material: COOKED_CHICKEN
-        name: 'Cooked Chicken'
+        name: 'Піскен Тауық Еті'
         price: 48.0
       '15':
         material: COOKED_BEEF
-        name: 'Steak'
+        name: 'Стейк'
         price: 35.0
       '16':
         material: GOLDEN_CARROT
-        name: 'Golden Carrot'
+        name: 'Алтын Сәбіз'
         price: 120.0
       '17':
         material: GOLDEN_APPLE
-        name: 'Golden Apple'
+        name: 'Алтын Алма'
         price: 350.0
   spawner:
-    title: 'Spawner Shop'
+    title: 'Спаунер Дүкені'
     size: 27
     items: {}
