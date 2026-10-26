@@ -37,7 +37,7 @@ public class ShopGUI implements Listener {
     }
 
     public static void openShop(Player player, DonutShop plugin) {
-        String title = plugin.getConfig().getString("main-menu.title", "&6Donut Shop");
+        String title = plugin.getConfig().getString("main-menu.title", "&6Donut Дүкені");
         int size = plugin.getConfig().getInt("main-menu.size", 27);
         Inventory inv = Bukkit.createInventory(null, size, title);
 
@@ -55,7 +55,7 @@ public class ShopGUI implements Listener {
                         inv.setItem(slot, createItem(material, name, lore));
                     }
                 } catch (IllegalArgumentException e) {
-                    plugin.getLogger().warning("Invalid shop config for slot: " + key);
+                    plugin.getLogger().warning("Дүкен конфигурациясы жарамсыз, слот: " + key);
                 }
             }
         }
@@ -81,13 +81,13 @@ public class ShopGUI implements Listener {
                 double price = itemsSection.getDouble(key + ".price");
 
                 if (matName != null) {
-                    String lore = "§7Buy price: §a$" + price;
+                    String lore = "§7Сатып алу бағасы: §a$" + price;
                     inv.setItem(slot, createItem(Material.valueOf(matName.toUpperCase()), name, lore));
                 }
             }
         }
 
-        inv.setItem(18, createItem(Material.RED_STAINED_GLASS_PANE, "§cBack", "§7Click to return"));
+        inv.setItem(18, createItem(Material.RED_STAINED_GLASS_PANE, "§cАртқа", "§7Қайту үшін басыңыз"));
 
         player.openInventory(inv);
     }
@@ -113,7 +113,7 @@ public class ShopGUI implements Listener {
         if (plugin == null) return;
 
         String currentTitle = event.getView().getTitle();
-        String mainTitle = plugin.getConfig().getString("main-menu.title", "&6Donut Shop");
+        String mainTitle = plugin.getConfig().getString("main-menu.title", "&6Donut Дүкені");
         Player player = (Player) event.getWhoClicked();
 
         if (currentTitle.equals(mainTitle)) {
@@ -143,7 +143,7 @@ public class ShopGUI implements Listener {
             }
         }
 
-        if (currentTitle.startsWith("§8Buy: ")) {
+        if (currentTitle.startsWith("§8Сатып алу: ")) {
             event.setCancelled(true);
             if (!sessions.containsKey(player.getUniqueId())) {
                 player.closeInventory();
@@ -166,7 +166,7 @@ public class ShopGUI implements Listener {
     }
 
     private void openBuyMenu(Player player, BuySession session) {
-        Inventory inv = Bukkit.createInventory(null, 27, "§8Buy: " + session.material.name());
+        Inventory inv = Bukkit.createInventory(null, 27, "§8Сатып алу: " + session.material.name());
         updateBuyMenu(inv, session);
         player.openInventory(inv);
     }
@@ -179,24 +179,24 @@ public class ShopGUI implements Listener {
         if (meta != null) {
             meta.setDisplayName("§e" + session.material.name());
             List<String> lore = new ArrayList<>();
-            lore.add("§7Amount: §f" + session.amount);
-            lore.add("§7Total Price: §a$" + (session.amount * session.unitPrice));
+            lore.add("§7Саны: §f" + session.amount);
+            lore.add("§7Жалпы бағасы: §a$" + (session.amount * session.unitPrice));
             meta.setLore(lore);
             item.setItemMeta(meta);
         }
         inv.setItem(13, item);
 
-        inv.setItem(21, createItem(Material.RED_STAINED_GLASS_PANE, "§cCancel", "§7Click to cancel"));
-        inv.setItem(23, createItem(Material.LIME_STAINED_GLASS_PANE, "§aConfirm", "§7Click to buy"));
+        inv.setItem(21, createItem(Material.RED_STAINED_GLASS_PANE, "§cБас тарту", "§7Бас тарту үшін басыңыз"));
+        inv.setItem(23, createItem(Material.LIME_STAINED_GLASS_PANE, "§aРастау", "§7Сатып алу үшін басыңыз"));
 
         if (session.material.getMaxStackSize() > 1) {
-            inv.setItem(15, createItem(Material.LIME_STAINED_GLASS_PANE, "§aAdd 1", "§7Click to add 1"));
-            inv.setItem(16, createItem(Material.LIME_STAINED_GLASS_PANE, "§aAdd 10", "§7Click to add 10", 10));
-            inv.setItem(17, createItem(Material.LIME_STAINED_GLASS_PANE, "§aAdd 64", "§7Click to add 64", 64));
+            inv.setItem(15, createItem(Material.LIME_STAINED_GLASS_PANE, "§a1 қосу", "§71 қосу үшін басыңыз"));
+            inv.setItem(16, createItem(Material.LIME_STAINED_GLASS_PANE, "§a10 қосу", "§710 қосу үшін басыңыз", 10));
+            inv.setItem(17, createItem(Material.LIME_STAINED_GLASS_PANE, "§a64 қосу", "§764 қосу үшін басыңыз", 64));
 
-            if (session.amount > 1) inv.setItem(11, createItem(Material.RED_STAINED_GLASS_PANE, "§cRemove 1", "§7Click to remove 1"));
-            if (session.amount > 10) inv.setItem(10, createItem(Material.RED_STAINED_GLASS_PANE, "§cRemove 10", "§7Click to remove 10", 10));
-            if (session.amount > 64) inv.setItem(9, createItem(Material.RED_STAINED_GLASS_PANE, "§cRemove 64", "§7Click to remove 64", 64));
+            if (session.amount > 1) inv.setItem(11, createItem(Material.RED_STAINED_GLASS_PANE, "§c1 алып тастау", "§71 алып тастау үшін басыңыз"));
+            if (session.amount > 10) inv.setItem(10, createItem(Material.RED_STAINED_GLASS_PANE, "§c10 алып тастау", "§710 алып тастау үшін басыңыз", 10));
+            if (session.amount > 64) inv.setItem(9, createItem(Material.RED_STAINED_GLASS_PANE, "§c64 алып тастау", "§764 алып тастау үшін басыңыз", 64));
         }
     }
 
@@ -237,17 +237,17 @@ public class ShopGUI implements Listener {
         double totalPrice = session.amount * session.unitPrice;
 
         if (DonutShop.getEconomy() == null) {
-            player.sendMessage("§cEconomy not available!");
+            player.sendMessage("§cЭкономика қолжетімсіз!");
             return;
         }
         if (DonutShop.getEconomy().getBalance(player) < totalPrice) {
-            player.sendMessage("§cInsufficient funds! Need $" + totalPrice);
+            player.sendMessage("§cҚаражат жеткіліксіз! $" + totalPrice + " қажет");
             return;
         }
 
         DonutShop.getEconomy().withdrawPlayer(player, totalPrice);
         ItemStack toGive = new ItemStack(session.material, session.amount);
         player.getInventory().addItem(toGive);
-        player.sendMessage("§aBought " + session.amount + "x " + session.material.name().toLowerCase().replace("_", " ") + " for $" + totalPrice);
+        player.sendMessage("§a" + session.amount + "x " + session.material.name().toLowerCase().replace("_", " ") + " $" + totalPrice + "-ге сатып алынды");
     }
 }
