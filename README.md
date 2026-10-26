@@ -1,55 +1,66 @@
-# DonutShop Plugin
+# DonutShop Плагині
 
-A simple but powerful GUI shop plugin for Spigot/Paper servers, fully managed via a configuration file and in-game commands. Inspired by the DonutSMP one
+Spigot/Paper серверлеріне арналған қарапайым, бірақ қуатты GUI дүкен плагині, толығымен конфигурация файлы мен ойын ішіндегі командалар арқылы басқарылады. DonutSMP-тің дүкенінен шабыттанған
 
-## Features
+## Мүмкіндіктері
 
-- **GUI-Based:** An easy-to-use shop interface.
-- **Categories:** Organize items into customizable categories.
-- **Admin Panel:** A graphical admin panel (`/adminshop`) for easily adding and removing shop items.
-- **Amount Selection:** Players can choose exactly how many items they want to buy (for stackable items).
-- **Reload Command:** Reload the configuration without a server restart.
-- **Vault Integration:** Uses Vault for the economy.
+- **GUI негізінде:** Пайдалануға оңай дүкен интерфейсі.
+- **Категориялар:** Заттарды реттелетін категорияларға бөлу.
+- **Әкімшілік панелі:** Дүкен заттарын оңай қосу және өшіру үшін графикалық әкімшілік панелі (`/adminshop`).
+- **Мөлшерді таңдау:** Ойыншылар стектелетін заттарды қанша дана сатып алғысы келетінін нақты таңдай алады.
+- **Қайта жүктеу командасы:** Конфигурацияны серверді қайта іске қоспай-ақ қайта жүктеу.
+- **Vault интеграциясы:** Экономика үшін Vault қолданады.
 
 ---
 
-## Showcase
+## Көрсетілім
 
-### Main Menu (Category Overview)
+### Басты мәзір (Категориялар шолуы)
+
+
 ![Main Menu](https://i.imgur.com/TTJbzCb.png)
 
-### Category View
+### Категория көрінісі
+
+
 ![Category View](https://i.imgur.com/gB2Rfii.png)
 
-### Purchase View
+
+
+### Сатып алу көрінісі
+
+
 ![Purchase View](https://i.imgur.com/N8wYF6C.png)
 
+
+
 ---
 
-## Commands & Permissions
+## Командалар және рұқсаттар
 
-| Command | Description | Permission |
+| Команда | Сипаттамасы | Рұқсат |
 | --- | --- | --- |
-| `/shop` | Opens the main shop menu. | `donutshop.use` |
-| `/shop reload` | Reloads the `config.yml`. | `OP` |
-| `/adminshop` | Opens the admin panel for shop management. | `OP` |
+| `/shop` | Негізгі дүкен мәзірін ашады. | `donutshop.use` |
+| `/shop reload` | `config.yml` файлын қайта жүктейді. | `OP` |
+| `/adminshop` | Дүкенді басқаруға арналған әкімшілік панелін ашады. | `OP` |
 
 ---
 
-## Installation
+## Орнату
 
-1. Download the `DonutShop-X.X.jar` into your `plugins` folder. (Found in the Target Folder)
-2. Ensure that Vault and an economy plugin (e.g., EssentialsX) are installed.
-3. Start the server. The `config.yml` will be created in the `plugins/DonutShop` folder.
+1. `DonutShop-X.X.jar` файлын `plugins` қалтасына жүктеп алыңыз. (Target қалтасынан табасыз)
+2. Vault пен экономика плагинінің (мысалы, EssentialsX) орнатылғанын тексеріңіз.
+3. Серверді іске қосыңыз. `config.yml` файлы `plugins/DonutShop` қалтасында жасалады.
 
 ---
 
-## Configuration
+## Конфигурация
 
-The `config.yml` is divided into two main sections:
+`config.yml` екі негізгі бөлімнен тұрады:
 
 ### `main-menu`
-Here you define the categories that are displayed in the main shop window.
+
+Мұнда дүкеннің негізгі терезесінде көрсетілетін категорияларды анықтайсыз.
 
 ```yaml
 main-menu:
@@ -60,5 +71,5 @@ main-menu:
       material: END_STONE
       name: 'End'
       lore: 'Click to view End Shop'
-      category: end # This key links to the category below
+      category: end # Бұл кілт төмендегі категориямен байланысады
 ```
